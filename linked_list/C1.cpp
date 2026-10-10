@@ -6,31 +6,29 @@ struct Node
     int data;
     Node *next;
 
-    Node (int value)
+    Node(int value)
     {
-
         data=value;
         next=NULL;
-    }
 
+    }
 
 };
-void Traversal (Node*head)
-{
-    Node*temp=head;
 
-    do
-    {
+ void display (Node*head)
+ {
+     Node*temp=head;
+     do {
 
-        cout << temp->data << "->";
+        cout<<temp->data << " ->";
         temp=temp->next;
-    }
-    while (temp !=head);
-    cout<< temp->data;
 
+     }
+     while (temp!=head);
+        cout<<temp->data << " -> ";
 
+ }
 
-}
 int main ()
 {
 
@@ -46,7 +44,8 @@ int main ()
     second->next=third;
     third->next=head;
     cout << "Circular Linked List is:";
-    Traversal (head);
+    display (head);
     return 0;
 
 }
+
