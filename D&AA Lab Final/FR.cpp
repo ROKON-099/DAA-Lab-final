@@ -3,27 +3,32 @@ using namespace std;
 
 int main()
 {
-    int n, W;
+    int n, c;
+
+    cout << "Enter the number of items: ";
     cin >> n;
 
-    int wt[n], val[n];
+    int w[n], v[n];
+
+    cout << "Enter weight and value of each item:\n";
 
     for (int i = 0; i < n; i++)
-        cin >> wt[i] >> val[i];
+        cin >> w[i] >> v[i];
 
-    cin >> W;
+    cout << "Enter the capacity: ";
+    cin >> c;
 
-    vector<int> dp(W + 1, 0);
+    vector<int> dp(c + 1, 0);
 
     for (int i = 0; i < n; i++)
     {
-        for (int w = W; w >= wt[i]; w--)
+        for (int j = c; j >= w[i]; j--)
         {
-            dp[w] = max(dp[w], val[i] + dp[w - wt[i]]);
+            dp[j] = max(dp[j], v[i] + dp[j - w[i]]);
         }
     }
 
-    cout << "Maximum Profit = " << dp[W];
+    cout << "Maximum Profit = " << dp[c];
 
     return 0;
 }
