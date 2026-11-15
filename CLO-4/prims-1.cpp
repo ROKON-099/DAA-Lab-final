@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std ;
+int main ()
+{
+
+    int n, cost[10][10],  visit[10]= {0}, total=0;
+
+    cout <<"Enter the number of Nodes:";
+    cin>>n;
+    cout << "Enter adjacency martrix:" <<endl;
+    for (int i=0; i<n; i++)
+    {
+        for (int j=0; j<n; j++)
+        {
+            cin>>cost[i][j];
+
+        }
+    }
+
+    
+    visit[0]=1;
+    for (int k=1; k<n; k++)
+    {
+        int min=999, u,v;
+
+        for (int i=0; i<n; i++)
+        {
+            for (int j=0; j<n; j++)
+            {
+                if (visit[i]==1 &&  visit[j]==0)
+                {
+                    if (cost[i][j]!=0 && cost[i][j]<min)
+                    {
+                        min=cost[i][j];
+                        u=i;
+                        v=j;
+
+                    }
+
+
+                }
+            }
+        }
+
+        cout << u <<"-" <<v <<"=" << min <<endl;
+        total+=min;
+        visit[v]=1;
+
+
+    }
+
+
+  cout <<"Minimum cost is:" << total;
+  return 0;
+
+
+
+
+
+
+}
