@@ -16,6 +16,8 @@ int main ()
 
         }
     }
+
+    
     visit[0]=1;
     for (int k=1; k<n; k++)
     {
